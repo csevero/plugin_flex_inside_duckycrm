@@ -5,7 +5,7 @@ Flex Plugin & CRM wireframe for Flexercise #3
 ## Installation & Startup
 
 ```
-cd plugin-feathercorp-fx3/
+cd plugin-feathercorp-fx3-crm-frame/
 npm install
 npm start
 ```
