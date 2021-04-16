@@ -1,13 +1,15 @@
-# Flexercise #4 Plugin & CRM Wireframe
+# Flexercise #3 Plugin & CRM Wireframe
 
 Flex Plugin & CRM wireframe for Flexercise #3
 
 ## Installation & Startup
 
+Make sure you have the [Flex Plugins CLI](https://www.twilio.com/docs/flex/developer/plugins/cli) installed.
+
 ```
 cd plugin-feathercorp-fx3-crm-frame/
 npm install
-npm start
+twilio flex:plugins:start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) and login to Flex.

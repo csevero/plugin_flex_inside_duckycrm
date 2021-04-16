@@ -1,9 +1,9 @@
 import { FlexPlugin } from 'flex-plugin';
 import FeatherTheme from './FeatherCorpTheme';
 
-const PLUGIN_NAME = 'FeathercorpPlugin';
+const PLUGIN_NAME = 'FeathercorpFx3CrmFramePlugin';
 
-export default class FeathercorpPlugin extends FlexPlugin {
+export default class FeathercorpFx3CrmFramePlugin extends FlexPlugin {
   constructor() {
     super(PLUGIN_NAME);
   }
