@@ -19,6 +19,10 @@ export default class FeathercorpFx3CrmFramePlugin extends FlexPlugin {
     // set color theme
     manager.updateConfig({ colorTheme: FeatherTheme });
 
+    fetch('https://storkcrm-3329-dev.twil.io/json?id=543')
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
+
     // show Task with customer data populated by the IVR
     manager.strings.TaskHeaderLine =
       '{{task.attributes.account_data.first_name}} ' +
@@ -31,9 +35,11 @@ export default class FeathercorpFx3CrmFramePlugin extends FlexPlugin {
     function receiveMessage(event) {
       console.log('Message Received', event);
       flex.Actions.invokeAction('StartOutboundCall', {
-        destination: '' // set to the phone number received from CRM
+        destination: event.data, // set to the phone number received from CRM
       });
     }
+
+    flex.AgentDesktopView.Panel2.Content.remove('container');
 
     // if Flex is running in an iframe, hide some of the UI and
     // setup hooks for the messages exchanged between the Flex and CRM
@@ -46,7 +52,7 @@ export default class FeathercorpFx3CrmFramePlugin extends FlexPlugin {
 
       // when an agent selects a task, use the Actions Framework to
       // send task attributes to the parent window (CRM)
-      flex.Actions.addListener('afterSelectTask', (payload) => {
+      flex.Actions.addListener('afterSelectTask', payload => {
         if (payload.task && payload.task.attributes) {
           window.top.postMessage(payload.task.attributes);
         }
